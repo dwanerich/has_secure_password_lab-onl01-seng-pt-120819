@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
     def new
     end
 
@@ -9,13 +8,13 @@ class UsersController < ApplicationController
     end
 
     def create
-            @user = User.create(user_params)
-            if !@user.authenticate(params[:password])
-                render :new
-            end
-            return head(:forbidden) unless @user.authenticate(params[:password])
+            @user = User.new(user_params)
+        if @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
+        else
+            return redirect_to(controller: 'users', action: "new")
+        end
     end
 
 
