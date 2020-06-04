@@ -10,13 +10,12 @@ class UsersController < ApplicationController
 
     def create
             @user = User.create(user_params)
+            if !@user.authenticate(params[:password])
+                render :new
+            end
             return head(:forbidden) unless @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
-
-        if !@user.authenticate(params[:password])
-            render :login
-        end
     end
 
 
