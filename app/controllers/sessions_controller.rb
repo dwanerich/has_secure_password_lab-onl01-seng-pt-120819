@@ -14,5 +14,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :name
+        return redirect_to(controller: 'users', action: "new")
     end
 end

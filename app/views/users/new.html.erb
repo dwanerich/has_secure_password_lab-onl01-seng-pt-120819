@@ -1,6 +1,12 @@
+<br><br><br><br>
+<br><br><br><b></b>
+<center>
+<h2>Welcome To My House Party Party</h2>
+
 <%= form_for :user, url: '/users' do |f| %>
-  Username: <%= f.text_field :name %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
+  Username <%= f.text_field :name %> <br> <br>
+  Password <%= f.password_field :password %> <br> <br>
+  Password Confirmation <%= f.password_field :password_confirmation %> <br> <br>
   <%= f.submit "Submit" %>
 <% end %>
+</center>
